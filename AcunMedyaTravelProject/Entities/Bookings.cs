@@ -9,14 +9,15 @@ namespace AcunMedyaTravelProject.Entities
     {
         public int BookingsID { get; set; }
         public string Title { get; set; }
-        public string TravelDateStart { get; set; }
+        public DateTime? TravelDateStart { get; set; }
 
-        public string TravelDateEnd { get; set; }
+        public DateTime? TravelDateEnd { get; set; }
         public string OrganizerName { get; set; }
         public string Location { get; set; }
         public string AttendeesCount { get; set; }
         public string ImageUrl { get; set; }
-        public string IsFavorite { get; set; }
+        public bool IsFavorite { get; set; }
+
 
 
     }

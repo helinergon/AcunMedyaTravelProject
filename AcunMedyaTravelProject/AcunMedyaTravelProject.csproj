@@ -129,7 +129,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\Context.cs" />
     <Compile Include="Controllers\AdminLayoutController.cs" />
+    <Compile Include="Controllers\BookingsController.cs" />
+    <Compile Include="Controllers\BookingStepsController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\DestinationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\SliderController.cs" />
+    <Compile Include="Controllers\SponsorController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
+    <Compile Include="Controllers\TestimonialController.cs" />
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\Bookings.cs" />
     <Compile Include="Entities\BookingSteps.cs" />
@@ -138,7 +148,9 @@
     <Compile Include="Entities\Services.cs" />
     <Compile Include="Entities\Slider.cs" />
     <Compile Include="Entities\Sponsor.cs" />
+    <Compile Include="Entities\statistics.cs" />
     <Compile Include="Entities\Testimonial.cs" />
+    <Compile Include="Entities\UserStatViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -153,6 +165,30 @@
     <Compile Include="Migrations\202505051019598_mig-two.cs" />
     <Compile Include="Migrations\202505051019598_mig-two.Designer.cs">
       <DependentUpon>202505051019598_mig-two.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202505161617518_bookings-migration.cs" />
+    <Compile Include="Migrations\202505161617518_bookings-migration.Designer.cs">
+      <DependentUpon>202505161617518_bookings-migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202505201700515_statistic.cs" />
+    <Compile Include="Migrations\202505201700515_statistic.Designer.cs">
+      <DependentUpon>202505201700515_statistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202505220713434_statistics.cs" />
+    <Compile Include="Migrations\202505220713434_statistics.Designer.cs">
+      <DependentUpon>202505220713434_statistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202505220737090_admin.cs" />
+    <Compile Include="Migrations\202505220737090_admin.Designer.cs">
+      <DependentUpon>202505220737090_admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202505220745269_AddAdminEmailColumn.cs" />
+    <Compile Include="Migrations\202505220745269_AddAdminEmailColumn.Designer.cs">
+      <DependentUpon>202505220745269_AddAdminEmailColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202505220828112_admins.cs" />
+    <Compile Include="Migrations\202505220828112_admins.Designer.cs">
+      <DependentUpon>202505220828112_admins.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1038,6 +1074,19 @@
     <Content Include="Views\AdminLayout\PartialSideBar.cshtml" />
     <Content Include="Views\AdminLayout\PartialFooter.cshtml" />
     <Content Include="Views\AdminLayout\PartialScript.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Bookings\Index.cshtml" />
+    <Content Include="Views\BookingSteps\Index.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Destinations\Index.cshtml" />
+    <Content Include="Views\Slider\Index.cshtml" />
+    <Content Include="Views\Sponsor\Index.cshtml" />
+    <Content Include="Views\Testimonial\Index.cshtml" />
+    <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="Views\Bookings\UpdateBookings.cshtml" />
+    <Content Include="Views\BookingSteps\UpdateBookingSteps.cshtml" />
+    <Content Include="Views\Destinations\UpdateDestinations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1079,6 +1128,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202505051019598_mig-two.resx">
       <DependentUpon>202505051019598_mig-two.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505161617518_bookings-migration.resx">
+      <DependentUpon>202505161617518_bookings-migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505201700515_statistic.resx">
+      <DependentUpon>202505201700515_statistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505220713434_statistics.resx">
+      <DependentUpon>202505220713434_statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505220737090_admin.resx">
+      <DependentUpon>202505220737090_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505220745269_AddAdminEmailColumn.resx">
+      <DependentUpon>202505220745269_AddAdminEmailColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505220828112_admins.resx">
+      <DependentUpon>202505220828112_admins.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

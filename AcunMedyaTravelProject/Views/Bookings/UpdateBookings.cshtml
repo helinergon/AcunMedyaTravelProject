@@ -1,0 +1,143 @@
+﻿@model AcunMedyaTravelProject.Entities.Bookings
+@{
+    ViewBag.Title = "UpdateBookings";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Rezervasyon Güncelleme Sayfası</h2>
+
+
+@* Gelişmiş ve ikonlu form tasarımı *@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background-color: #fffaf3;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .form-container {
+        max-width: 650px;
+        margin: 50px auto;
+    }
+
+    .form-card {
+        background-color: #fff3e0;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(255, 140, 0, 0.2);
+        padding: 35px;
+        border-left: 6px solid #ffa726;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #e65100;
+    }
+
+    .input-group-text {
+        background-color: #ffe0b2;
+        border: none;
+        color: #e65100;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        border: 1px solid #ffa726;
+        transition: 0.3s;
+    }
+
+    .form-control:focus {
+        border-color: #fb8c00;
+        box-shadow: 0 0 8px rgba(251, 140, 0, 0.4);
+    }
+
+    .btn-orange {
+        background-color: #fb8c00;
+        color: white;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-orange:hover {
+        background-color: #ef6c00;
+    }
+
+    .img-preview {
+        max-height: 200px;
+        margin-top: 10px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        display: none;
+    }
+
+</style>
+
+<div class="form-container">
+    <div class="form-card">
+        <form method="post">
+            @Html.HiddenFor(x => x.BookingsID)
+
+            <div class="mb-3">
+                <label class="form-label">Başlık</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-heading"></i></span>
+                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control", placeholder = "Etkinlik başlığı" })
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Organizatör Adı</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                    @Html.TextBoxFor(x => x.OrganizerName, new { @class = "form-control", placeholder = "Organizatör" })
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Konum/Yer</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                    @Html.TextBoxFor(x => x.Location, new { @class = "form-control", placeholder = "Etkinlik yeri" })
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Katılımcı Sayısı</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-users"></i></span>
+                    @Html.TextBoxFor(x => x.AttendeesCount, new { @class = "form-control", placeholder = "0" })
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Resim URL</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-image"></i></span>
+                    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", placeholder = "https://...", oninput = "updateImagePreview(this.value)" })
+                </div>
+                <img id="imagePreview" class="img-preview" />
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-orange px-4"><i class="fas fa-save"></i> Güncelle</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function updateImagePreview(url) {
+        const img = document.getElementById("imagePreview");
+        if (url && url.startsWith("http")) {
+            img.src = url;
+            img.style.display = "block";
+        } else {
+            img.style.display = "none";
+        }
+
+
+    }
+</script>

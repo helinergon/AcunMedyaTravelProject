@@ -1,0 +1,119 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Giriş Yap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yV7eB+W6VZ3fZKGVKMbv+bTxktOZla7iZkMyR5u+OVzXxFQpHy6rJjUGqjcZGxswuIN3N9d3nJmV7Lq0pUX4+Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(to right, #ffcc70, #ff6f3c);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background: linear-gradient(to bottom right, #fff7f0, #ffe0c0);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 380px;
+        }
+
+            .login-container h2 {
+                text-align: center;
+                color: #ff6f3c;
+                margin-bottom: 25px;
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+            .form-group i {
+                position: absolute;
+                top: 11px;
+                left: 10px;
+                color: #ff9f68;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 10px 10px 10px 35px;
+                border: 2px solid #ffae6d;
+                border-radius: 10px;
+                outline: none;
+                transition: border-color 0.3s;
+            }
+
+                .form-group input:focus {
+                    border-color: #ff6f3c;
+                }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background: #ff6f3c;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+            input[type="submit"]:hover {
+                background: #ff814d;
+            }
+
+        .validation-message {
+            color: #d40000;
+            margin-top: 15px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+
+        <h2>Giriş Yap</h2>
+        <form action="/Login/Index" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <i class="fa fa-user"></i>
+                <input type="text" name="UserName" placeholder="Kullanıcı Adı" required />
+            </div>
+
+            <div class="form-group">
+                <i class="fa fa-lock"></i>
+                <input type="password" name="Password" placeholder="Şifre" required />
+            </div>
+
+
+            <input type="submit" value="Giriş Yap" />
+        </form>
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="validation-message">
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            </div>
+        }
+    </div>
+</body>
+</html>

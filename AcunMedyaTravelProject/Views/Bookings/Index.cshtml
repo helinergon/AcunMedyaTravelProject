@@ -1,0 +1,74 @@
+﻿@model List<AcunMedyaTravelProject.Entities.Bookings>
+@{
+    ViewBag.Title = "Rezervasyon";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+<!-- Font Awesome ikonları -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<div class="container mt-5">
+
+
+    <div class="card shadow-lg rounded">
+       
+        <div class="card-header text-white d-flex justify-content-between align-items-center" style="background-color: #e67e22;">
+            <h3 class="mb-0">Rezervasyon Sayfası</h3>
+            <a href="/Bookings/AddBookings/" class="btn" style="background-color: #dc3545; color: white;">
+                <i class="fas fa-plus"></i> Yeni Rezervasyon
+            </a>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-bordered table-hover text-center align-middle">
+                <!-- tablo başlıkları - turuncu ton -->
+                <thead style="background-color: #e67e22; color: white;">
+                    <tr>
+                        <th>ID</th>
+                        <th>Başlık</th>
+                        <th>Seyahat Başlangıç Tarihi</th>
+                        <th>Seyahat Bitiş Tarihi</th>
+                        <th>Organizatör Adı</th>
+                        <th>Konum / Yer</th>
+                        <th>Katılımcı Sayısı</th>
+                        <th>Resim</th>
+                        <th>Favori mi?</th>
+                        <th>Güncelle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.BookingsID</td>
+                            <td>@item.Title</td>
+                            <td>@item.TravelDateStart</td>
+                            <td>@item.TravelDateEnd</td>
+                            <td>@item.OrganizerName</td>
+                            <td>@item.Location</td>
+                            <td>@item.AttendeesCount</td>
+                            <td>
+                                <img src="@item.ImageUrl" class="rounded" style="width:60px; height:60px; object-fit:cover;" />
+                            </td>
+                            <td>@item.IsFavorite</td>
+
+                            <td>
+                                <a href="/Bookings/UpdateBookings/@item.BookingsID" class="btn" style="background-color: #dc3545; color: white;">
+                                    <i class="fas fa-edit"></i> Güncelle
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/Bookings/DeleteBookings/@item.BookingsID" class="btn" style="background-color: #e74c3c; color: white;" onclick="return confirm('Bu rezervasyonu silmek istediğinize emin misiniz?');">
+                                    <i class="fas fa-trash-alt"></i> Sil
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
