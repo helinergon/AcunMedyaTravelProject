@@ -13,8 +13,10 @@ namespace AcunMedyaTravelProject.Controllers
     {
         AcunMedyaTravelProject.Context.Context _context = new AcunMedyaTravelProject.Context.Context();
         // GET: Statistics
+
         public ActionResult Index()
         {
+
             ViewBag.BookingsCount= _context.Bookings.Count();
             ViewBag.BookingStepsCount = _context.BookingsSteps.Count();
             ViewBag.CategoryCount = _context.Categories.Count();

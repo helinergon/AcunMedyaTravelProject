@@ -132,7 +132,9 @@
     <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\BookingStepsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\DestinationsController.cs" />
+    <Compile Include="Controllers\ErrorPagesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
@@ -1087,6 +1089,23 @@
     <Content Include="Views\Bookings\UpdateBookings.cshtml" />
     <Content Include="Views\BookingSteps\UpdateBookingSteps.cshtml" />
     <Content Include="Views\Destinations\UpdateDestinations.cshtml" />
+    <Content Include="Views\Services\UpdateServices.cshtml" />
+    <Content Include="Views\Sponsor\UpdateSponsor.cshtml" />
+    <Content Include="Views\Testimonial\UpdateTestimonial.cshtml" />
+    <Content Include="Views\Bookings\AddBookings.cshtml" />
+    <Content Include="Views\BookingSteps\AddBookingSteps.cshtml" />
+    <Content Include="Views\Destinations\AddDestinations.cshtml" />
+    <Content Include="Views\Services\AddServices.cshtml" />
+    <Content Include="Views\Sponsor\AddSponsor.cshtml" />
+    <Content Include="Views\Testimonial\AddTestimonial.cshtml" />
+    <Content Include="Views\ErrorPages\Index.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Default\PartialBookings.cshtml" />
+    <Content Include="Views\Default\PartialBookingSteps.cshtml" />
+    <Content Include="Views\Default\PartialDestinations.cshtml" />
+    <Content Include="Views\Default\PartialServices.cshtml" />
+    <Content Include="Views\Default\PartialSponsor.cshtml" />
+    <Content Include="Views\Default\PartialTestimonial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,13 +1,49 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+    Response.StatusCode = 500;  // Genel sunucu hatası için 500 kodu
+}
+
+<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Error</title>
+    <meta charset="utf-8" />
+    <title>Bir Hata Oluştu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff3f3;
+            color: #b00000;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        a {
+            margin-top: 20px;
+            display: inline-block;
+            background-color: #b00000;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+            a:hover {
+                background-color: #7a0000;
+            }
+    </style>
 </head>
 <body>
-    <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
-    </hgroup>
+    <h1>500 - Sunucu Hatası</h1>
+    <p>Üzgünüz, bir şeyler yanlış gitti.</p>
+    <a href="@Url.Action("Index", "Home")">Ana Sayfaya Dön</a>
 </body>
 </html>

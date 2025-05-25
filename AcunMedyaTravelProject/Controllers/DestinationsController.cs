@@ -37,7 +37,7 @@ namespace AcunMedyaTravelProject.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public ActionResult UpdateBookingSteps(int id)
+        public ActionResult UpdateDestinations(int id)
         {
             var value = _context.Destinations.Find(id);
             return View(value);

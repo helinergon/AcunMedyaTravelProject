@@ -1,0 +1,113 @@
+﻿@model AcunMedyaTravelProject.Entities.Sponsor
+@{
+    ViewBag.Title = "UpdateSponsor";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+@* Gelişmiş ve ikonlu form tasarımı *@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background-color: rgb(210, 208, 160);
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .form-container {
+        max-width: 650px;
+        margin: 50px auto;
+    }
+
+    .form-card {
+        background-color: rgb(158, 188, 138);
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(83, 125, 93, 0.2);
+        padding: 35px;
+        border-left: 6px solid rgb(115, 148, 107);
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: rgb(83, 125, 93);
+    }
+
+    .input-group-text {
+        background-color: rgb(210, 208, 160);
+        border: none;
+        color: rgb(83, 125, 93);
+    }
+
+    .form-control {
+        border-radius: 10px;
+        border: 1px solid rgb(115, 148, 107);
+        transition: 0.3s;
+        background-color: rgb(210, 208, 160);
+        color: rgb(83, 125, 93);
+    }
+
+        .form-control:focus {
+            border-color: rgb(83, 125, 93);
+            box-shadow: 0 0 8px rgba(83, 125, 93, 0.4);
+            background-color: rgb(210, 208, 160);
+            color: rgb(58, 90, 64);
+        }
+
+    .btn-orange {
+        background-color: rgb(83, 125, 93);
+        color: white;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        border: none;
+    }
+
+        .btn-orange:hover {
+            background-color: rgb(115, 148, 107);
+        }
+
+    .img-preview {
+        max-height: 200px;
+        margin-top: 10px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        display: none;
+    }
+</style>
+
+<div class="form-container">
+    <div class="form-card">
+        <h2 class="form-label">Sponsor Güncelleme Sayfası</h2>
+        <form method="post">
+            @Html.HiddenFor(x => x.SponsorID)
+
+            <div class="mb-3">
+                <label class="form-label">Resim URL</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-image"></i></span>
+                    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", placeholder = "https://...", oninput = "updateImagePreview(this.value)" })
+                </div>
+                <img id="imagePreview" class="img-preview" />
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-orange px-4"><i class="fas fa-save"></i> Güncelle</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function updateImagePreview(url) {
+        const img = document.getElementById("imagePreview");
+        if (url && url.startsWith("http")) {
+            img.src = url;
+            img.style.display = "block";
+        } else {
+            img.style.display = "none";
+        }
+    }
+</script>

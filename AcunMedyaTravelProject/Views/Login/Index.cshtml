@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(to right, #ffcc70, #ff6f3c);
+            background: linear-gradient(to right, #d0f0c0, #a8e6cf);
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -22,75 +22,89 @@
         }
 
         .login-container {
-            background: linear-gradient(to bottom right, #fff7f0, #ffe0c0);
-            padding: 35px;
+            background: linear-gradient(to bottom right, #f0fff0, #d8f3dc);
+            padding: 40px 30px;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 380px;
+            max-width: 400px;
+            animation: fadeIn 1s ease-in-out;
         }
 
-            .login-container h2 {
-                text-align: center;
-                color: #ff6f3c;
-                margin-bottom: 25px;
-            }
+        .login-container h2 {
+            text-align: center;
+            color: #2e7d32;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
 
         .form-group {
             margin-bottom: 20px;
             position: relative;
         }
 
-            .form-group i {
-                position: absolute;
-                top: 11px;
-                left: 10px;
-                color: #ff9f68;
-            }
+        .form-group i {
+            position: absolute;
+            top: 11px;
+            left: 10px;
+            color: #66bb6a;
+            font-size: 16px;
+        }
 
-            .form-group input {
-                width: 100%;
-                padding: 10px 10px 10px 35px;
-                border: 2px solid #ffae6d;
-                border-radius: 10px;
-                outline: none;
-                transition: border-color 0.3s;
-            }
+        .form-group input {
+            width: 100%;
+            padding: 10px 10px 10px 35px;
+            border: 2px solid #a5d6a7;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-size: 14px;
+        }
 
-                .form-group input:focus {
-                    border-color: #ff6f3c;
-                }
+        .form-group input:focus {
+            border-color: #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.4);
+        }
 
         input[type="submit"] {
             width: 100%;
             padding: 12px;
-            background: #ff6f3c;
+            background: #4caf50;
             color: white;
             font-weight: bold;
             border: none;
             border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
 
-            input[type="submit"]:hover {
-                background: #ff814d;
-            }
+        input[type="submit"]:hover {
+            background: #388e3c;
+        }
 
         .validation-message {
-            color: #d40000;
+            color: #c62828;
             margin-top: 15px;
             font-size: 0.9em;
             text-align: center;
         }
+
+        @@keyframes fadeIn {
+            from {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
-
     <div class="login-container">
-
-        <h2>Giriş Yap</h2>
+        <h2>Admin Paneline Hoşgeldiniz.. Giriş Yapınız!!</h2>
         <form action="/Login/Index" method="post">
             @Html.AntiForgeryToken()
 
@@ -104,7 +118,6 @@
                 <input type="password" name="Password" placeholder="Şifre" required />
             </div>
 
-
             <input type="submit" value="Giriş Yap" />
         </form>
 
@@ -117,3 +130,6 @@
     </div>
 </body>
 </html>
+
+
+

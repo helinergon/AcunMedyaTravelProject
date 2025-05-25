@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "AddServices";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<style>
+    body {
+        background-color: rgb(210, 208, 160);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h2 {
+        color: rgb(83, 125, 93);
+        margin-bottom: 20px;
+    }
+
+    label {
+        color: rgb(115, 148, 107);
+        font-weight: bold;
+    }
+
+    .form-control {
+        border: 1px solid rgb(115, 148, 107);
+        margin-bottom: 15px;
+        background-color: rgb(210, 208, 160);
+        color: rgb(83, 125, 93);
+        border-radius: 6px;
+        padding: 6px 10px;
+        transition: border-color 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: rgb(83, 125, 93);
+            outline: none;
+            box-shadow: 0 0 6px rgba(83, 125, 93, 0.5);
+            background-color: rgb(210, 208, 160);
+            color: rgb(58, 90, 64);
+        }
+
+    .btn-custom {
+        background-color: rgb(83, 125, 93);
+        color: white;
+        border: none;
+        margin-top: 5px;
+        padding: 10px 18px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-custom:hover {
+            background-color: rgb(115, 148, 107);
+        }
+
+    .form-container {
+        background-color: rgb(158, 188, 138);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(83, 125, 93, 0.2);
+        max-width: 600px;
+        margin: auto;
+    }
+</style>
+
+<div class="form-container">
+    <h2>Hizmet Ekleme Sayfası</h2>
+
+    <form method="post">
+        <label>Başlık</label>
+        <input type="text" class="form-control" name="Title" />
+
+        <label>Açıklama</label>
+        <input type="text" class="form-control" name="Description" />
+
+        <label>Resim Url</label>
+        <input type="text" class="form-control" name="ImageUrl" />
+
+        <button class="btn btn-custom" type="submit">Hizmet Ekle</button>
+    </form>
+</div>

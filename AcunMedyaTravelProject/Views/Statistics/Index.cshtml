@@ -1,11 +1,8 @@
-﻿
-@model List<AcunMedyaTravelProject.Entities.statistics>
+﻿@model List<AcunMedyaTravelProject.Entities.statistics>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
-
-
 
 <!-- FontAwesome CDN -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -17,63 +14,64 @@
     <h2 class="title">İstatistikler Paneli</h2>
 
     <div class="stats-grid">
-        <div class="stat-box" style="--color:#FFA000;">
+        <div class="stat-box" style="--color: rgb(83, 125, 93);">
             <i class="fas fa-calendar-check icon"></i>
             <p>Rezervasyonlar</p>
             <h3>@ViewBag.BookingsCount</h3>
         </div>
-        <div class="stat-box" style="--color:#FFB300;">
+        <div class="stat-box" style="--color: rgb(80, 110, 80);">
             <i class="fas fa-step-forward icon"></i>
             <p>Rezervasyon Adımları</p>
             <h3>@ViewBag.BookingStepsCount</h3>
         </div>
-        <div class="stat-box" style="--color:#FFC107;">
+        <div class="stat-box" style="--color: rgb(100, 120, 80);">
             <i class="fas fa-tags icon"></i>
             <p>Kategoriler</p>
             <h3>@ViewBag.CategoryCount</h3>
         </div>
 
-        <div class="stat-box" style="--color:#FFD54F;">
+        <div class="stat-box" style="--color: rgb(140, 130, 100); color: rgb(60, 90, 60);">
             <i class="fas fa-map-marked-alt icon"></i>
             <p>Destinasyonlar</p>
             <h3>@ViewBag.DestinationsCount</h3>
         </div>
-        <div class="stat-box" style="--color:#FFAB40;">
+        <div class="stat-box" style="--color: rgb(80, 110, 80);">
             <i class="fas fa-sign-in-alt icon"></i>
             <p>Giriş</p>
             <h3>@ViewBag.LoginCount</h3>
         </div>
-        <div class="stat-box" style="--color:#FF8F00;">
+        <div class="stat-box" style="--color: rgb(60, 90, 60);">
             <i class="fas fa-concierge-bell icon"></i>
             <p>Hizmetler</p>
             <h3>@ViewBag.ServicesCount</h3>
         </div>
-        <div class="stat-box" style="--color:#F57C00;">
+        <div class="stat-box" style="--color: rgb(100, 120, 80); color: rgb(60, 90, 60);">
             <i class="fas fa-images icon"></i>
             <p>Slider</p>
             <h3>@ViewBag.SliderCount</h3>
         </div>
-        <div class="stat-box" style="--color:#E65100;">
+        <div class="stat-box" style="--color: rgb(80, 110, 80);">
             <i class="fas fa-handshake icon"></i>
             <p>Sponsorlar</p>
             <h3>@ViewBag.SponsorCount</h3>
         </div>
-        <div class="stat-box" style="--color:#BF360C;">
+        <div class="stat-box" style="--color: rgb(60, 90, 60);">
             <i class="fas fa-comments icon"></i>
             <p>Yorumlar</p>
             <h3>@ViewBag.TestimonialCount</h3>
         </div>
     </div>
 </div>
+
 <style>
     .stat-box {
-        background: linear-gradient(135deg, var(--color), #fff3e0);
+        background: linear-gradient(135deg, rgba(60, 90, 60, 0.9), rgba(160, 158, 130, 0.9));
         color: #fff;
         padding: 24px;
         border-radius: 20px;
         font-weight: bold;
         font-size: 18px;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -94,7 +92,7 @@
 
         .stat-box:hover {
             transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .stat-box .icon {
@@ -102,12 +100,15 @@
             margin-bottom: 12px;
             z-index: 1;
             position: relative;
+            color: #fff;
+            filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
         }
 
         .stat-box p,
         .stat-box h3 {
             z-index: 1;
             position: relative;
+            color: #fff;
         }
 
         .stat-box h3 {
@@ -123,13 +124,96 @@
     }
 
     .title {
-        color: #FF6F00;
+        color: rgb(60, 90, 60);
         font-size: 34px;
         margin-bottom: 24px;
         font-weight: 600;
+        text-align: center;
     }
+
+    h3.user-stats-title {
+        color: rgb(60, 90, 60);
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    /* Kullanıcı bazlı kartlar */
+    .user-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin-top: 24px;
+    }
+
+    .user-card-container {
+        background-color: rgb(160, 158, 130);
+        border-radius: 16px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        padding: 20px;
+        transition: transform 0.3s ease;
+    }
+
+        .user-card-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(60, 90, 60, 0.4);
+        }
+
+    .user-email {
+        font-size: 18px;
+        color: rgb(60, 90, 60);
+        margin-bottom: 16px;
+        text-align: center;
+    }
+
+    .user-stats-boxes {
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        background-color: rgb(110, 130, 90);
+        border-radius: 12px;
+        padding: 12px 10px;
+        text-align: center;
+        flex: 1 1 80px;
+        min-width: 80px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        transition: background 0.3s;
+        color: rgb(60, 90, 55);
+    }
+
+        .stat-item:hover {
+            background-color: rgb(90, 120, 80);
+            color: #fff;
+        }
+
+        .stat-item i {
+            font-size: 20px;
+            color: rgb(60, 90, 55);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .stat-item:hover i {
+            color: #fff;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: rgb(50, 90, 55);
+            margin: 4px 0 2px;
+        }
+
+        .stat-item span {
+            font-weight: bold;
+            color: rgb(30, 70, 40);
+            font-size: 16px;
+        }
 </style>
-<h3 style="color:#FF6F00; margin-top:40px;">Kullanıcı Bazlı İstatistikler</h3>
+
+<h3 class="title">Kullanıcı Bazlı İstatistikler</h3>
 <div class="user-cards-grid">
     @foreach (var user in (List<AcunMedyaTravelProject.Entities.UserStatViewModel>)ViewBag.UserStats)
     {
@@ -155,75 +239,3 @@
         </div>
     }
 </div>
-
-
-
-
-<style>
-    .user-cards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 24px;
-        margin-top: 24px;
-    }
-
-    .user-card-container {
-        background-color: #FFF8E1;
-        border-radius: 16px;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-        padding: 20px;
-        transition: transform 0.3s ease;
-    }
-
-        .user-card-container:hover {
-            transform: translateY(-5px);
-        }
-
-    .user-email {
-        font-size: 18px;
-        color: #FF6F00;
-        margin-bottom: 16px;
-        text-align: center;
-    }
-
-    .user-stats-boxes {
-        display: flex;
-        justify-content: space-around;
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-
-    .stat-item {
-        background-color: #FFE0B2;
-        border-radius: 12px;
-        padding: 12px 10px;
-        text-align: center;
-        flex: 1 1 80px;
-        min-width: 80px;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-        transition: background 0.3s;
-    }
-
-        .stat-item:hover {
-            background-color: #FFD180;
-        }
-
-        .stat-item i {
-            font-size: 20px;
-            color: #F57C00;
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        .stat-item p {
-            font-size: 14px;
-            color: #333;
-            margin: 4px 0 2px;
-        }
-
-        .stat-item span {
-            font-weight: bold;
-            color: #000;
-            font-size: 16px;
-        }
-</style>

@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "AddDestinations";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background-color: rgb(210, 208, 160);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 40px 0;
+    }
+
+    .form-container {
+        max-width: 600px;
+        margin: auto;
+        background-color: rgb(158, 188, 138);
+        border-radius: 20px;
+        padding: 35px 40px;
+        box-shadow: 0 8px 20px rgba(83, 125, 93, 0.3);
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    h2 {
+        text-align: center;
+        color: rgb(83, 125, 93);
+        margin-bottom: 30px;
+        font-weight: 700;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: rgb(83, 125, 93);
+    }
+
+    .input-group-text {
+        background-color: rgb(115, 148, 107);
+        border: none;
+        color: rgb(210, 208, 160);
+        width: 42px;
+        justify-content: center;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        border: 1.5px solid rgb(115, 148, 107);
+        background-color: rgb(210, 208, 160);
+        color: rgb(53, 78, 43);
+        font-weight: 500;
+        padding-left: 12px;
+        margin-bottom: 20px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-control::placeholder {
+        color: rgb(115, 148, 107);
+        opacity: 1;
+    }
+
+    .form-control:focus {
+        border-color: rgb(83, 125, 93);
+        box-shadow: 0 0 8px rgba(83, 125, 93, 0.6);
+        background-color: #f0f4e8;
+        color: rgb(50, 80, 40);
+    }
+
+    .btn-green {
+        background-color: rgb(83, 125, 93);
+        color: white;
+        border-radius: 10px;
+        font-weight: bold;
+        padding: 10px 0;
+        border: none;
+        width: 100%;
+        box-shadow: 0 4px 8px rgba(83, 125, 93, 0.4);
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-green:hover {
+        background-color: rgb(115, 148, 107);
+        box-shadow: 0 6px 12px rgba(115, 148, 107, 0.5);
+    }
+
+    @@keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+</style>
+
+<div class="form-container">
+    <h2>Gidilecek Yer Ekleme Sayfası</h2>
+
+    <form method="post">
+        <label class="form-label">Resim URL</label>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-image"></i></span>
+            <input type="text" class="form-control" name="ImageUrl" placeholder="https://..." />
+        </div>
+
+        <label class="form-label">Başlık</label>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-heading"></i></span>
+            <input type="text" class="form-control" name="Title" placeholder="Başlık" />
+        </div>
+
+        <label class="form-label">Gün Sayısı</label>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+            <input type="text" class="form-control" name="DaysTrip" placeholder="Gün Sayısı" />
+        </div>
+
+        <label class="form-label">Fiyat</label>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-money-bill-wave"></i></span>
+            <input type="text" class="form-control" name="Price" placeholder="Fiyat" />
+        </div>
+
+        <button class="btn btn-green" type="submit"><i class="fas fa-plus"></i> Konum / Yer Ekle</button>
+    </form>
+</div>

@@ -1,0 +1,192 @@
+﻿@{
+    Layout = null;
+    Response.StatusCode = 404;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>404 - Kaybolmuş Gibi Gözüküyorsun!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --light-orange: #FFD8A9;
+            --medium-orange: #FFA552;
+            --deep-orange: #FF6B35;
+            --brown: #4d2c19;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(160deg, var(--light-orange), var(--medium-orange));
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brown);
+        }
+
+        .emoji-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .emoji-bg span {
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.07;
+            animation: spin 30s linear infinite;
+        }
+
+        @@keyframes spin {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(360deg) scale(1.2); }
+        }
+
+        .stars {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            animation: moveStars 60s linear infinite;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        @@keyframes moveStars {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-500px, -500px); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            background: #fff7f0;
+            border: 3px dashed var(--medium-orange);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(255, 105, 0, 0.4);
+            max-width: 650px;
+            width: 100%;
+            animation: fadeIn 1.5s ease-in-out;
+            text-align: center;
+        }
+
+        @@keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .emoji-svg {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite, rotateWobble 4s ease-in-out infinite;
+        }
+
+        @@keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @@keyframes rotateWobble {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(2deg); }
+            75% { transform: rotate(-2deg); }
+        }
+
+        .speech-bubble {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -130%);
+            background-color: #fff3e0;
+            color: #5a3a28;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            animation: bubbleFade 6s infinite;
+        }
+
+        @@keyframes bubbleFade {
+            0%, 100% { opacity: 0; transform: translate(-50%, -130%) scale(0.8); }
+            40%, 60% { opacity: 1; transform: translate(-50%, -150%) scale(1); }
+        }
+
+        h1 {
+            font-size: 42px;
+            margin: 10px 0;
+            color: var(--deep-orange);
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: var(--brown);
+        }
+
+        a {
+            background-color: var(--deep-orange);
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            display: inline-block;
+            animation: bounceButton 2.5s infinite;
+        }
+
+        a:hover {
+            background-color: #d5521d;
+            transform: scale(1.05);
+        }
+
+        @@keyframes bounceButton {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="emoji-bg">
+        <span style="top: 10%; left: 15%;">😲</span>
+        <span style="top: 20%; left: 70%;">🫢</span>
+        <span style="top: 60%; left: 30%;">😵</span>
+        <span style="top: 75%; left: 80%;">😳</span>
+        <span style="top: 40%; left: 50%;">😮</span>
+    </div>
+    <div class="stars"></div>
+
+    <div class="container">
+        <!-- SVG Emoji -->
+        <div style="position: relative;">
+            <svg class="emoji-svg" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="36" cy="36" r="23" fill="#F4AA41" stroke="#000" stroke-width="2" />
+                <circle cx="28" cy="30" r="3" fill="#000" />
+                <circle cx="44" cy="30" r="3" fill="#000" />
+                <path d="M28,45 q8,8 16,0" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" />
+                <path d="M24,26 q6,-6 12,0" fill="none" stroke="#000" stroke-width="1.5" opacity="0.4" />
+                <path d="M48,26 q-6,-6 -12,0" fill="none" stroke="#000" stroke-width="1.5" opacity="0.4" />
+            </svg>
+            <div class="speech-bubble">Ben mi yanlış geldim yoksa sen mi? 😅</div>
+        </div>
+
+        <h1>404 - Oooops!</h1>
+        <p>ÇIKMAZA GİRMİŞŞ OLABİLİRRSİİİNN... YOKSA BU SAYFA HİÇBİR ZAMAN VAR OLMADI  MI?!!!!!! 🧭</p>
+        <a href="https://localhost:44314/Login/Index">Ana Sayfaya Dön</a>
+    </div>
+</body>
+</html>

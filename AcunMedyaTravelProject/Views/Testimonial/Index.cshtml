@@ -6,27 +6,78 @@
 <!-- Font Awesome ikonları -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
+<style>
+    tbody, td {
+        background-color: rgb(210, 208, 160) !important;
+        color: black;
+    }
+
+        tbody tr:hover {
+            background-color: rgb(210, 208, 160) !important;
+            color: black;
+        }
+    .card-header {
+        background-color: rgb(83, 125, 93) !important; /* koyu yeşil */
+        color: white;
+    }
+
+    .btn-add {
+        background-color: rgb(115, 148, 107);
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-add:hover {
+            background-color: rgb(83, 125, 93);
+            color: white;
+        }
+
+    thead {
+        background-color: rgb(115, 148, 107);
+        color: white;
+    }
+
+    .btn-update {
+        background-color: rgb(158, 188, 138);
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-update:hover {
+            background-color: rgb(115, 148, 107);
+            color: white;
+        }
+
+    .btn-delete {
+        background-color: rgb(210, 208, 160);
+        color: rgb(83, 125, 93);
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+        .btn-delete:hover {
+            background-color: rgb(158, 188, 138);
+            color: rgb(83, 125, 93);
+        }
+</style>
+
 <div class="container mt-5">
-
-
     <div class="card shadow-lg rounded">
 
-        <div class="card-header text-white d-flex justify-content-between align-items-center" style="background-color: #e67e22;">
+        <div class="card-header d-flex justify-content-between align-items-center">
             <h3 class="mb-0">Referanslar</h3>
-            <a href="/Testimonial/AddTestimonial/" class="btn" style="background-color: #dc3545; color: white;">
+            <a href="/Testimonial/AddTestimonial/" class="btn btn-add">
                 <i class="fas fa-plus"></i> Yeni Referans
             </a>
         </div>
 
         <div class="card-body">
             <table class="table table-bordered table-hover text-center align-middle">
-                <!-- tablo başlıkları - turuncu ton -->
-                <thead style="background-color: #e67e22; color: white;">
+                <thead>
                     <tr>
                         <th>ID</th>
-                        <th>İsim<th>
+                        <th>İsim</th>
                         <th>Soyisim</th>
-                        <th>Resim Url</th>
+                        <th>ResimUrl</th>
                         <th>Açıklama</th>
                         <th>Güncelle</th>
                         <th>Sil</th>
@@ -39,15 +90,17 @@
                             <td>@item.TestimonialID</td>
                             <td>@item.Name</td>
                             <td>@item.Surname</td>
-                            <td>@item.ImageUrl</td>
+                            <td>
+                                <img src="@item.ImageUrl" class="rounded" style="width:60px; height:60px; object-fit:cover;" />
+                            </td>
                             <td>@item.Description</td>
                             <td>
-                                <a href="/Testimonial/UpdateTestimonial/@item.TestimonialID" class="btn" style="background-color: #dc3545; color: white;">
+                                <a href="/Testimonial/UpdateTestimonial/@item.TestimonialID" class="btn btn-update">
                                     <i class="fas fa-edit"></i> Güncelle
                                 </a>
                             </td>
                             <td>
-                                <a href="/Testimonial/DeleteTestimonial/@item.TestimonialID" class="btn" style="background-color: #e74c3c; color: white;" onclick="return confirm('Bu rezervasyonu silmek istediğinize emin misiniz?');">
+                                <a href="/Testimonial/DeleteTestimonial/@item.TestimonialID" class="btn btn-delete" onclick="return confirm('Bu rezervasyonu silmek istediğinize emin misiniz?');">
                                     <i class="fas fa-trash-alt"></i> Sil
                                 </a>
                             </td>
@@ -58,5 +111,3 @@
         </div>
     </div>
 </div>
-
-
